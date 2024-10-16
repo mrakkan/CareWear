@@ -46,7 +46,6 @@ body{
 .lower-box{
     background-color: white;
     height: 100%;
-    border-radius: 40px;
 }
 .total{
     display: flex;
@@ -57,17 +56,15 @@ body{
 .idk{
     display: flex;
     padding: 10px;
-    width: 50%;
     height: 100%;
+    width: 50%;
 }
 .right-box{
     background-color: white;
     height: 100%;
-    border-radius: 50px;
 }
 #box{
     background-color: white;
-    border-radius: 40px;
     width: 100%;
 }
 @media (max-width: 1000px){
