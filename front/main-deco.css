@@ -1,4 +1,7 @@
-
+*{
+    font-family: 'oduda';
+    font-size: 3.5vh;
+}
 body{
     margin: 0;
     display: flex;
@@ -7,11 +10,14 @@ body{
     background-color: #FFF7E2;
 }
 .top-content{
-    font-size: 10px;
-    color: white;
-    width: 100%;
-    height: 5%;
+    display: flex;
+    flex-direction: row;
+    color: #FFF7E2;
+    height: 10%;
     background-color: #7C6351;
+    gap: 1vh;
+    padding-left: 4vh;
+    padding-top: 1vh;
 }
 .main-content{
     display: flex;
@@ -19,76 +25,107 @@ body{
     height: 100%;
     background-color: #FFF7E2;
     margin: 10vh;
+    margin-left: 25vh;
+    margin-right: 25vh;
     gap: 50px;
+    color: #7C6351;
 }
 .left-panel{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 30%;
     height: 100%;
-    gap: 50px;
+    gap: 40px;
 }
 .right-panel{
-    width: 50%;
+    width: 70%;
     height: 100%;
 }
 .left-upper-panel{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
     height: 50%;
-    gap: 20px;
 }
 .left-lower-panel{
-    padding: 10px;
     height: 50%;
 }
 .lower-box{
     background-color: white;
-    height: 100%;
+    height: 85%;
+    padding: 15px;
+    border-radius: 35px;
 }
 .total{
     display: flex;
-    padding: 10px;
-    width: 50%;
-    height: 100%;
-}
-.idk{
-    display: flex;
-    padding: 10px;
-    height: 100%;
-    width: 50%;
+    flex-direction: column;
+    padding: 15px;
+    height: 85%;
+    background-color: white;
+    border-radius: 35px;
 }
 .right-box{
     background-color: white;
-    height: 100%;
+    height: 94%;
+    padding: 15px;
+    border-radius: 35px;
+}
+.big{
+    display: flex; 
+    margin: auto;
+    margin-bottom: 2vh;
+    height: 90%;
+    align-items: center;
+    font-size: 12vh;
+}
+.top{
+    display: flex;
 }
 #box{
     background-color: white;
     width: 100%;
 }
+#top-step{
+    margin: 2vh;
+}
+img{
+    width: 10vh;
+    height: 10vh;
+}
+#logo{
+    width: 6vh;
+    height: 6vh;
+}
+#carewear{
+    margin: 1vh;
+}
 @media (max-width: 1000px){
     body{
         height: 200vh;
     }
+    .top-content{
+        height: 4%;
+        background-color: #7C6351;
+        gap: 1vh;
+        padding-left: 4vh;
+        padding-top: 1vh;
+    }
     .main-content{
         flex-direction: column;
-        margin: 5vh;
+        margin: 6vh;
+        gap: 40px;
     }
+    
     .left-upper-panel{
         flex-direction: column;
         gap: 10px;
+        padding: 0;
     }
     .left-lower-panel{
         padding: 0;
     }
     .total{
-        width: 100%;
-        padding: 0;
+        height: 90%;
     }
-    .idk{
-        width: 100%;
-        padding: 0;
+    .lower-box{
+        height: 90%;
     }
     .left-panel{
         width: 100%;
