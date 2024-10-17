@@ -7,6 +7,10 @@
     <title>Carewear</title>
 </head>
 <body>
+    <div id="load-screen">
+        <div class="heartbeat">
+        </div>
+    </div>
     <div class="top-content">
         <img id="logo" src="/img/logo.png" alt="logo">
         <div id="carewear">CareWear</div>
@@ -40,4 +44,13 @@
         </section>
     </main>
 </body>
+<script>
+    window.onload = function() {
+        setTimeout(function(){
+        document.getElementById('load-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        document.getElementById('top-content').style.display = 'block';
+    }, 2000);
+};
+</script>
 </html>

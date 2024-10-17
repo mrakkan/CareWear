@@ -96,6 +96,50 @@ img{
 #carewear{
     margin: 1vh;
 }
+#load-screen {
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF7E2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.heartbeat {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    background-image: url("../img/heart.png");
+    background-position: center;
+    background-size: cover;
+    animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.3);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.3);
+    }
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 @media (max-width: 1000px){
     body{
         height: 200vh;
