@@ -6,7 +6,7 @@ body{
     margin: 0;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 800px;
     background-color: #FFF7E2;
 }
 .top-content{
