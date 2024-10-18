@@ -24,12 +24,17 @@ main{
     position: relative;
     
 }
-img{
+.frame{
     width: 100vw;
     height: 110vh;
     position: absolute;
+<<<<<<< Updated upstream
     top: -10vh;
     left: 0;
+=======
+    top: -7vh;
+    left: 0.5vh;
+>>>>>>> Stashed changes
 }
 .head-name h1{
     margin-top: 12vh;
