@@ -6,7 +6,7 @@ body{
     margin: 0;
     display: flex;
     flex-direction: column;
-    height: 1080px;
+    height: 100vh;
     background-color: #FFF7E2;
 }
 .top-content{
@@ -82,26 +82,26 @@ body{
 .bottom{
     display: flex;
     height: 65%;
-    align-items: center;
     font-size: 10vh;
+    align-items: center;
     justify-content: center;
 }
 #box{
     background-color: white;
     width: 100%;
 }
-#name-box{
+.name-box{
     margin-top: 1vh;
 }
 img{
     width: 6vh;
     height: 6vh;
 }
-#logo{
+.logo{
     width: 6vh;
     height: 6vh;
 }
-#carewear{
+.carewear{
     margin: 1vh;
 }
 #load-screen {
@@ -125,7 +125,40 @@ img{
     background-size: cover;
     animation: heartbeat 1.5s infinite ease-in-out;
 }
-
+.heart {
+    display: flex;
+    flex-direction: row;
+    height: 30%;
+    gap: 2vh;
+    margin-top: 2vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+.rate-box{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border-radius: 35px;
+    background-color: #FFF7E2;
+    padding: 2vh;
+}
+.text{
+    display: flex;
+    justify-content: center;
+}
+.heart-values{
+    display: flex;
+    font-size: 10vh;
+    align-items: center;
+    justify-content: center;
+}
+.heart-box{
+    display: flex;
+    height: 58%;
+    font-size: 10vh;
+    align-items: center;
+    justify-content: center;
+}
 @keyframes heartbeat {
     0%, 100% {
         transform: scale(1);
@@ -184,6 +217,23 @@ img{
     }
     .right-panel{
         width: 100%;
+        height: 78vh;
+    }
+    .heart{
+        flex-direction: column;
+        height: 45vh;
+        gap: 3vh;
+    }
+    .heart-box{
+        height: 25vh;
+    }
+    .right-box{
+        height: 78vh;
+        gap: 10vh;
+    }
+    .rate-box{
+        width: 23vh;
+        justify-content: center;
     }
 }
 
