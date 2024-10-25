@@ -1,17 +1,18 @@
 *{
     font-family: 'oduda';
     font-size: 3.5vh;
+    color: #7C6351;
 }
 body{
     margin: 0;
     display: flex;
     flex-direction: column;
-    height: 5000px;
+    height: 10600px;
     background-color: #FFF7E2;
-    overflow-x: hidden;
 }
 main{
     height: 100%;
+    overflow-x: hidden;
     
 }
 .head{
@@ -28,13 +29,8 @@ main{
     width: 100vw;
     height: 110vh;
     position: absolute;
-<<<<<<< Updated upstream
-    top: -10vh;
-    left: 0;
-=======
     top: -7vh;
-    left: 0.5vh;
->>>>>>> Stashed changes
+    left: 0;
 }
 .head-name h1{
     margin-top: 12vh;
@@ -42,26 +38,44 @@ main{
     font-size: 10vh;
 }
 .abstract{
+    height: 50vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/decor.png");
+}
+.abstract-ban{
+    
     background-color: #FFD7E9;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
-    height: 40vh;
+    height: 60vh;
 }
-.abstract div{
-    padding: 20px;
+.abstract-ban h2{
+    text-align: center;
+    margin: 0;
+    font-size: 10vh;
     width: 100%;
 }
+.abstract-ban div{
+    width: 100%;
+}
+
 .equipment{
     display: flex;
+    background-image: url("../img/decor4.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     flex-direction: column;
-    height: 90vh;
+    height: auto;
 }
 .equipment h1{
     font-size: 10vh;
     text-align: center;
 }
 .item-list{
+    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -71,5 +85,164 @@ main{
 .item-list div{
     border-radius: 30px;
     background-color: white;
-    width: 30%;
+    width: 60vh;
+    height: 70vh;
+}
+.Input{
+    height: 100vh;
+}
+.Input h1{
+    font-size: 15vh;
+    text-align: center;
+}
+.Input .box{
+    padding: 50px;
+    margin: 50px;
+    border-radius: 7vh;
+    background-color: #FFD7E9;
+    height: 90vh;
+}
+.Input-deco{
+    left: 0.5vh;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+
+}
+.Connect{
+    margin-top: 50vh;
+    height: 120vh;
+}
+.Connect h1{
+    font-size: 10vh;
+    text-align: center;
+}
+.Connect .box{
+
+    background-color: #FFD7E9;
+    height: 90vh;
+}
+.Output{
+    display: flex;
+    background-image: url("../img/decor4.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    height: auto;
+}
+.Output h1{
+    margin-top: 5vh;
+    margin-bottom: 0;
+    font-size: 10vh;
+    text-align: center;
+}
+.Output p{
+    text-align: center;
+}
+.output-list{
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+.output-list div{
+    border-radius: 30px;
+    background-color: white;
+    width: 40vh;
+    height: 50vh;
+}
+.link{
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 4vh;
+    align-items: center;
+}
+.link-up{
+    gap: 4vh;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: center;
+}
+.link-up div{
+    display: flex;
+    flex-direction: row;
+    border-radius: 30px;
+    background-color: white;
+    width: 50%;
+    height: 20vh;
+}
+.link-down{
+    gap: 4vh;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: center;
+}
+.link-down div{
+    display: flex;
+    flex-direction: row;
+    border-radius: 30px;
+    background-color: white;
+    width: 50%;
+    height: 20vh;
+}
+
+.About-us{
+    gap: 4vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+}
+.About-us div{
+    font-size: 10vh;
+}
+.About-us-box{
+    gap: 4vh;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: center;
+}
+.About-us-box div{
+    display: flex;
+    flex-direction: row;
+    border-radius: 30px;
+    background-color: white;
+    width: 50%;
+    height: 50vh;
+}
+@media (max-width: 1000px){
+    .link{
+        height: auto;
+        width: 100%;
+    }
+    .link-up{
+        flex-direction: column;
+        align-items: center;
+    }
+    .link-down{
+        flex-direction: column;
+        align-items: center;
+    }
+    .link-up div{
+        margin: 2vh;
+        width: 90%;
+    }
+    .link-down div{
+        width: 90%;
+        margin: 2vh;
+    }
+    .About-us-box{
+        flex-direction: column;
+    }
+    .About-us-box div{
+        width: 100%;
+    }
 }
