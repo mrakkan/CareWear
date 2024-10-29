@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="project-style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Project-CareWear</title>
 </head>
 <body>
@@ -30,22 +31,28 @@
             </div>
         </section>
         <section class="head" id="head">
-            <div class="head-name">
+            <div class="head-name" data-aos="fade-right"  data-aos-duration="2000">
                 <h1>
                     CAREWEAR
                 </h1>
             </div>
+            <div class="head-right">
+                <div class="head-img" data-aos="fade-left"
+                data-aos-anchor="#example-anchor"
+                data-aos-offset="500"
+                data-aos-duration="1000"></div>
+            </div>
         </section>
         
 
-        <section class="equipment" id="equipment">
+        <section class="equipment" id="equipment" >
             <!-- <div class="abstract">
             </div> -->
             <h1>Equipments</h1>
-            <div class="item-list">
-                <div>item1</div>
-                <div>item2</div>
-                <div>item3</div>
+            <div class="item-list"  >
+                <div data-aos="fade-up" data-aos-duration="1000">item1</div>
+                <div data-aos="fade-up" data-aos-duration="2000">item2</div>
+                <div data-aos="fade-up" data-aos-duration="3000">item3</div>
             </div>
             <div>
                 <h1>blah blah blah blah</h1>
@@ -61,27 +68,27 @@
             <h1>Output</h1>
             <p>description</p>
             <div class="output-list">
-                <div>item1</div>
-                <div>item2</div>
-                <div>item3</div>
+                <div data-aos="flip-left" data-aos-duration="500">item1</div>
+                <div data-aos="flip-left" data-aos-duration="1000">item2</div>
+                <div data-aos="flip-left" data-aos-duration="1500">item3</div>
             </div>
         </section>
         <section class="link" id="link">
             <div>Links</div>
             <div class="link-list">
-                <div>video presentation</div>
-                <div>project website</div>
-                <div>source code</div>
-                <div>project poster</div>
+                <div data-aos="flip-up" data-aos-duration="1000">video presentation</div>
+                <div data-aos="flip-up" data-aos-duration="1000">project website</div>
+                <div data-aos="flip-down" data-aos-duration="1500">source code</div>
+                <div data-aos="flip-down" data-aos-duration="1500">project poster</div>
             </div>
         </section>
         <section class="About-us" id="about">
             <div>About us</div>
             <div class="us-list">
-                <div>best</div>
-                <div>krit</div>
-                <div>tae</div>
-                <div>kim</div>
+                <div data-aos="zoom-in" data-aos-duration="1000">best</div>
+                <div data-aos="zoom-in" data-aos-duration="1000">krit</div>
+                <div data-aos="zoom-in" data-aos-duration="1000">tae</div>
+                <div data-aos="zoom-in" data-aos-duration="1000">kim</div>
             </div>
         </section>
     </main>
@@ -89,8 +96,11 @@
         <h1 style="color: white; text-align: center; justify-content: center; align-items: center; width: 100%; height: 100%;">รู้ว่าต้องอ่าน</h1>
     </footer>
 </body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+    AOS.init();
 function godtronNI() {
+    
             const navPanel = document.querySelector('.new-bg-nav');
             navPanel.classList.toggle('open');
         }

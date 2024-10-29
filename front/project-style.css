@@ -114,15 +114,15 @@ main{
 }
 
 .head{
-    padding-top: 20vh;
     padding-bottom: 50px;
     width: 100%;
-    height: 100vh;
+    height: 120vh;
     display: flex;
     background-color: #FFD7E9;
     flex-direction: row;
-    justify-content: center;
-    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
 }
 .frame{
     width: 100vw;
@@ -135,6 +135,24 @@ main{
     margin-top: 12vh;
     color: #7C6351;
     font-size: 10vh;
+    text-align: center;
+}
+.head-right{
+    width: 50%;
+    height: 100%;
+}
+.head-name{
+    width: 50%;
+}
+.head-img{
+    transform: translate(10%, -50%);
+    border-radius: 50%;
+    background-image: url("../img/chi.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 150vh;
+    height: 150vh;
 }
 .abstract{
     height: 20vh;
