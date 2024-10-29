@@ -44,9 +44,26 @@ main{
     text-decoration: none;
     color: #7C6351;
     transition: ease-in-out 0.15s;
+    cursor: pointer;
 }
 .bg-nav a:hover{
     color: #ff85bc;
+}
+.new-nav{
+    width: 95%;
+    height: 10%;
+    color: #7C6351;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    padding-top: 3vh;
+    justify-content: end;
+    display: none;
+}
+.new-nav i{
+    cursor: pointer;
 }
 .head{
     padding-top: 50px;
@@ -58,7 +75,6 @@ main{
     flex-direction: row;
     justify-content: center;
     position: relative;
-    
 }
 .frame{
     width: 100vw;
@@ -80,7 +96,7 @@ main{
     background-image: url("../img/decor.png");
 }
 .abstract-ban{
-    padding-top: 20vh;
+    padding-top: 17vh;
     background-color: #FFD7E9;
     display: flex;
     flex-direction: column;
@@ -99,7 +115,7 @@ main{
 
 .equipment{
     margin-bottom: 20vh;
-    padding-top: 20vh;
+    padding-top: 9vh;
     display: flex;
     background-image: url("../img/decor4.png");
     background-size: cover;
@@ -200,6 +216,9 @@ main{
     align-items: center;
     justify-content: center;
 }
+.link div{
+    font-size: 10vh;
+}
 .link-list{
     flex-wrap: wrap;
     gap: 4vh;
@@ -289,5 +308,11 @@ main{
     }
     .About-us-box div{
         width: 100%;
+    }
+    .nav-panel{
+        display: none;
+    }
+    .new-nav{
+        display:flex;
     }
 }
