@@ -98,7 +98,6 @@ void loop() {
     display.print(" Step(s)");
   // }
 
-
     // delay(20);
 
 
