@@ -2,6 +2,7 @@
     font-family: 'oduda';
     font-size: 3.5vh;
     color: #7C6351;
+    scroll-behavior: smooth;
 }
 body{
     margin: 0;
@@ -13,9 +14,43 @@ body{
 main{
     height: 100%;
     overflow-x: hidden;
+    overflow-y: hidden;
     
 }
+.nav-panel{
+    display: flex;
+    /* padding: 5vh; */
+    height: 8vh;
+    width: 100%;
+    position: fixed;
+    top: 40px;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.bg-nav{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF7E2;
+    height: 100%;
+    border-radius: 50px;
+    border: solid #7C6351 2px;
+    gap: 6%;
+}
+.bg-nav a{
+    font-size: 2vw;
+    text-decoration: none;
+    color: #7C6351;
+    transition: ease-in-out 0.15s;
+}
+.bg-nav a:hover{
+    color: #ff85bc;
+}
 .head{
+    padding-top: 50px;
+    padding-bottom: 50px;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -38,19 +73,19 @@ main{
     font-size: 10vh;
 }
 .abstract{
-    height: 50vh;
+    height: 20vh;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url("../img/decor.png");
 }
 .abstract-ban{
-    
+    padding-top: 20vh;
     background-color: #FFD7E9;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 60vh;
+    height: 100vh;
 }
 .abstract-ban h2{
     text-align: center;
@@ -63,6 +98,8 @@ main{
 }
 
 .equipment{
+    margin-bottom: 20vh;
+    padding-top: 20vh;
     display: flex;
     background-image: url("../img/decor4.png");
     background-size: cover;
@@ -81,6 +118,7 @@ main{
     height: 100%;
     justify-content: center;
     gap: 20px;
+
 }
 .item-list div{
     border-radius: 30px;
@@ -90,14 +128,13 @@ main{
 }
 .Input{
     height: 100vh;
+    margin-bottom: 20vh;
 }
 .Input h1{
     font-size: 15vh;
     text-align: center;
 }
 .Input .box{
-    padding: 50px;
-    margin: 50px;
     border-radius: 7vh;
     background-color: #FFD7E9;
     height: 90vh;
@@ -118,11 +155,12 @@ main{
     text-align: center;
 }
 .Connect .box{
-
     background-color: #FFD7E9;
     height: 90vh;
 }
 .Output{
+    margin-bottom: 20vh;
+    padding-top: 20vh;
     display: flex;
     background-image: url("../img/decor4.png");
     background-size: cover;
@@ -131,7 +169,6 @@ main{
     height: auto;
 }
 .Output h1{
-    margin-top: 5vh;
     margin-bottom: 0;
     font-size: 10vh;
     text-align: center;
@@ -154,33 +191,37 @@ main{
     height: 50vh;
 }
 .link{
+    padding-top: 20vh;
     margin-top: 5vh;
     display: flex;
     flex-direction: column;
     height: auto;
     gap: 4vh;
     align-items: center;
+    justify-content: center;
 }
-.link-up{
+.link-list{
+    flex-wrap: wrap;
     gap: 4vh;
     display: flex;
     flex-direction: row;
-    width: 90%;
+    height: 100%;
     justify-content: center;
 }
-.link-up div{
+.link-list div{
     display: flex;
     flex-direction: row;
     border-radius: 30px;
     background-color: white;
-    width: 50%;
+    width: 70vh;
     height: 20vh;
 }
 .link-down{
+    flex-wrap: wrap;
+    height: 100%;
     gap: 4vh;
     display: flex;
     flex-direction: row;
-    width: 90%;
     justify-content: center;
 }
 .link-down div{
@@ -188,11 +229,12 @@ main{
     flex-direction: row;
     border-radius: 30px;
     background-color: white;
-    width: 50%;
+    width: 60vh;
     height: 20vh;
 }
 
 .About-us{
+    padding-top: 20vh;
     gap: 4vh;
     display: flex;
     flex-direction: column;
@@ -203,21 +245,23 @@ main{
 .About-us div{
     font-size: 10vh;
 }
-.About-us-box{
+.us-list{
+    flex-wrap: wrap;
     gap: 4vh;
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 100%;
     justify-content: center;
 }
-.About-us-box div{
+.us-list div{
     display: flex;
     flex-direction: row;
     border-radius: 30px;
     background-color: white;
-    width: 50%;
+    width: 70vh;
     height: 50vh;
 }
+
 @media (max-width: 1000px){
     .link{
         height: auto;
