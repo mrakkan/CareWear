@@ -17,10 +17,18 @@
                 <a href="#link" class="li-link">Links</a>
                 <a href="#about" class="li-About-us">About us</a>
             </div>
+            <div class="new-nav">
+                <button class="nav-button" onclick="godtronNI()"><i class="fa-solid fa-bars"></i></button>
+                    <div class="new-bg-nav">
+                        <a href="#head" class="li-head">Head</a>
+                        <a href="#equipment" class="li-Equipment">Equipments</a>
+                        <a href="#abstract" class="li-Abstract">Details</a>
+                        <a href="#link" class="li-link">Links</a>
+                        <a href="#about" class="li-About-us">About us</a>
+                    </div>
+                
+            </div>
         </section>
-        <div class="new-nav">
-            <i class="fa-solid fa-bars"></i>
-        </div>
         <section class="head" id="head">
             <div class="head-name">
                 <h1>
@@ -39,9 +47,6 @@
                 <div>item2</div>
                 <div>item3</div>
             </div>
-        </section>
-        <section class="abstract-ban" id="abstract">
-            <h2>Abstract</h2>
             <div>
                 <h1>blah blah blah blah</h1>
             </div>
@@ -80,5 +85,14 @@
             </div>
         </section>
     </main>
+    <footer style="background-color: #7C6351; height: 30vh; display: flex; width: 100%; flex-direction: column;">
+        <h1 style="color: white; text-align: center; justify-content: center; align-items: center; width: 100%; height: 100%;">รู้ว่าต้องอ่าน</h1>
+    </footer>
 </body>
+<script>
+function godtronNI() {
+            const navPanel = document.querySelector('.new-bg-nav');
+            navPanel.classList.toggle('open');
+        }
+</script>
 </html>

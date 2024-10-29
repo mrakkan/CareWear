@@ -52,8 +52,10 @@ body{
     height: 85%;
     padding: 15px;
     border-radius: 35px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .total{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: flex;
     flex-direction: column;
     padding: 15px;
@@ -62,6 +64,7 @@ body{
     border-radius: 35px;
 }
 .right-box{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: white;
     height: 94%;
     padding: 15px;
@@ -135,6 +138,7 @@ img{
     margin-right: 2vh;
 }
 .rate-box{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: flex;
     flex-direction: column;
     width: 50%;
