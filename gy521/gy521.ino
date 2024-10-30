@@ -58,9 +58,9 @@ void loop() {
   Serial.print(" || convert_gZ = "); Serial.print(convert_gZ); Serial.print(" ||");
   
 
-  if (convert_gX > 1000 || convert_gY > 1000 || convert_gZ > 1000) {
-    steps++;
-  }
+
+
+
 
   Serial.print(" | step(s) = "); Serial.print(steps);
 
