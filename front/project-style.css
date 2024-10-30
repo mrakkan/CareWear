@@ -2,28 +2,127 @@
     font-family: 'oduda';
     font-size: 3.5vh;
     color: #7C6351;
+    scroll-behavior: smooth;
 }
 body{
     margin: 0;
     display: flex;
     flex-direction: column;
-    height: 10600px;
+    height: auto;
+    
     background-color: #FFF7E2;
 }
 main{
     height: 100%;
     overflow-x: hidden;
+    overflow-y: hidden;
     
 }
-.head{
+.nav-panel{
+    display: flex;
+    /* padding: 5vh; */
+    height: 8vh;
     width: 100%;
-    height: 100vh;
+    position: fixed;
+    top: 40px;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.new-nav-panel{
+    display: flex;
+    /* padding: 5vh; */
+    height: 8vh;
+    width: 100%;
+    position: fixed;
+    top: 40px;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.bg-nav{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF7E2;
+    height: 100%;
+    border-radius: 50px;
+    border: solid #7C6351 2px;
+    gap: 6%;
+}
+.bg-nav a{
+    font-size: 2vw;
+    text-decoration: none;
+    color: #7C6351;
+    transition: ease-in-out 0.15s;
+    cursor: pointer;
+}
+.bg-nav a:hover{
+    color: #ff85bc;
+}
+.new-nav{
+    width: 95%;
+    color: #7C6351;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+    justify-content: end;
+    display: none;
+}
+.nav-button{
+    width: 10vh;
+    height: 10vh;
+    background-color: #FFF7E2;
+    border: solid #7C6351 2px;
+    border-radius: 10px;
+}
+.new-nav i{
+    cursor: pointer;
+}
+.new-bg-nav{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: solid #7C6351 2px;
+    padding: 5vh;
+    gap: 5px;
+    flex-direction: column;
+    position: absolute;
+    display: none;
+    top: 10px;
+    left: 20px;
+    border-radius: 50px;
+    background-color: #FFF7E2;
+    z-index: -1;
+}
+.new-bg-nav a{
+    text-align: center;
+    font-size: 5vh;
+    text-decoration: none;
+    color: #7C6351;
+    transition: ease-in-out 0.15s;
+    cursor: pointer;
+}
+.new-bg-nav.open{
+    max-height: 300px;
+    display: flex;
+}
+.head, .equipment,.Input,.Output,.link,.About-us{
+    border-bottom: solid #7C6351 3px;
+    padding-bottom: 20vh;
+}
+
+.head{
+    padding-bottom: 50px;
+    width: 100%;
+    height: 120vh;
     display: flex;
     background-color: #FFD7E9;
     flex-direction: row;
-    justify-content: center;
-    position: relative;
-    
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
 }
 .frame{
     width: 100vw;
@@ -36,21 +135,39 @@ main{
     margin-top: 12vh;
     color: #7C6351;
     font-size: 10vh;
+    text-align: center;
+}
+.head-right{
+    width: 50%;
+    height: 100%;
+}
+.head-name{
+    width: 50%;
+}
+.head-img{
+    transform: translate(10%, -50%);
+    border-radius: 50%;
+    background-image: url("../img/chi.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 150vh;
+    height: 150vh;
 }
 .abstract{
-    height: 50vh;
+    height: 20vh;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url("../img/decor.png");
 }
 .abstract-ban{
-    
+    padding-top: 17vh;
     background-color: #FFD7E9;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 60vh;
+    height: 100vh;
 }
 .abstract-ban h2{
     text-align: center;
@@ -63,6 +180,7 @@ main{
 }
 
 .equipment{
+    padding-top: 9vh;
     display: flex;
     background-image: url("../img/decor4.png");
     background-size: cover;
@@ -75,32 +193,35 @@ main{
     text-align: center;
 }
 .item-list{
+    
     flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     height: 100%;
     justify-content: center;
     gap: 20px;
+
 }
 .item-list div{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 30px;
     background-color: white;
     width: 60vh;
     height: 70vh;
 }
 .Input{
-    height: 100vh;
+    background-color: #f56e74;
+    height: auto;
+    border-bottom: solid #7C6351 2px;
 }
 .Input h1{
     font-size: 15vh;
     text-align: center;
+    margin: 0;
+    color: white;
 }
 .Input .box{
-    padding: 50px;
-    margin: 50px;
-    border-radius: 7vh;
-    background-color: #FFD7E9;
-    height: 90vh;
+    height: 100vh;
 }
 .Input-deco{
     left: 0.5vh;
@@ -118,11 +239,11 @@ main{
     text-align: center;
 }
 .Connect .box{
-
     background-color: #FFD7E9;
     height: 90vh;
 }
 .Output{
+    padding-top: 20vh;
     display: flex;
     background-image: url("../img/decor4.png");
     background-size: cover;
@@ -131,8 +252,7 @@ main{
     height: auto;
 }
 .Output h1{
-    margin-top: 5vh;
-    margin-bottom: 0;
+    margin: 0;
     font-size: 10vh;
     text-align: center;
 }
@@ -148,39 +268,50 @@ main{
     gap: 20px;
 }
 .output-list div{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 30px;
     background-color: white;
     width: 40vh;
     height: 50vh;
 }
 .link{
-    margin-top: 5vh;
+    background-color: #71d3aa;
+    padding-top: 20vh;
     display: flex;
     flex-direction: column;
     height: auto;
     gap: 4vh;
     align-items: center;
-}
-.link-up{
-    gap: 4vh;
-    display: flex;
-    flex-direction: row;
-    width: 90%;
     justify-content: center;
 }
-.link-up div{
+.link div{
+    font-size: 10vh;
+    
+}
+.link-list{
+    flex-wrap: wrap;
+    gap: 4vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+}
+.link-list div{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: flex;
     flex-direction: row;
     border-radius: 30px;
     background-color: white;
-    width: 50%;
+    width: 70vh;
     height: 20vh;
 }
 .link-down{
+    flex-wrap: wrap;
+    height: 100%;
     gap: 4vh;
     display: flex;
     flex-direction: row;
-    width: 90%;
     justify-content: center;
 }
 .link-down div{
@@ -188,11 +319,12 @@ main{
     flex-direction: row;
     border-radius: 30px;
     background-color: white;
-    width: 50%;
+    width: 60vh;
     height: 20vh;
 }
 
 .About-us{
+    padding-top: 20vh;
     gap: 4vh;
     display: flex;
     flex-direction: column;
@@ -203,21 +335,24 @@ main{
 .About-us div{
     font-size: 10vh;
 }
-.About-us-box{
+.us-list{
+    flex-wrap: wrap;
     gap: 4vh;
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 100%;
     justify-content: center;
 }
-.About-us-box div{
+.us-list div{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: flex;
     flex-direction: row;
     border-radius: 30px;
     background-color: white;
-    width: 50%;
+    width: 70vh;
     height: 50vh;
 }
+
 @media (max-width: 1000px){
     .link{
         height: auto;
@@ -245,4 +380,11 @@ main{
     .About-us-box div{
         width: 100%;
     }
+    .bg-nav{
+        display: none;
+    }
+    .new-nav{
+        display:block;
+    }
 }
+
