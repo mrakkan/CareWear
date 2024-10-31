@@ -12,25 +12,37 @@
     <main>
         <section class="nav-panel">
             <div class="bg-nav">
-                <a href="#head" class="li-head"><i class="fa-solid fa-heart"></i></a>
+                <div class="heart">
+                    <a href="#head" class="li-head"><i class="fa-solid fa-heart"></i></a>
+                </div>
                 <div class="middle">
                     <a href="#equipment" class="li-Equipment">Equipments</a>
                     <a href="#abstract" class="li-Abstract">Details</a>
                     <a href="#link" class="li-link">Links</a>
                 </div>
                 <a href="#about" class="li-About-us">About us</a>
+                <div class="more">
+                    <button class="nav-button" onclick="godtronNI()"><i class="fa-solid fa-bars"></i></button>
+                    <div class="new-bg-nav">
+                        <a href="#head" class="li-head">Head</a>
+                        <a href="#equipment" class="li-Equipment">Equipments</a>
+                        <a href="#abstract" class="li-Abstract">Details</a>
+                        <a href="#link" class="li-link">Links</a>
+                        <a href="#about" class="new-About-us">About us</a>
+                    </div>
+                </div>
             </div>
-            <div class="new-nav">
+            <!-- <div class="new-nav">
                 <button class="nav-button" onclick="godtronNI()"><i class="fa-solid fa-bars"></i></button>
                     <div class="new-bg-nav">
                         <a href="#head" class="li-head">Head</a>
                         <a href="#equipment" class="li-Equipment">Equipments</a>
-                        <a href="#input" class="li-Abstract">Details</a>
+                        <a href="#abstract" class="li-Abstract">Details</a>
                         <a href="#link" class="li-link">Links</a>
                         <a href="#about" class="li-About-us">About us</a>
                     </div>
                 
-            </div>
+            </div> -->
         </section>
         <section class="head" id="head">
             <div class="head-name" data-aos="fade-right"  data-aos-duration="2000">
@@ -118,7 +130,6 @@
 <script>
     AOS.init();
 function godtronNI() {
-    
             const navPanel = document.querySelector('.new-bg-nav');
             navPanel.classList.toggle('open');
         }

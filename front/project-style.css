@@ -81,32 +81,34 @@ main{
     justify-content: end;
     display: none;
 }
+.more{
+    display: none;
+}
 .nav-button{
-    width: 10vh;
-    height: 10vh;
-    background-color: #FFF7E2;
-    border: solid #7C6351 2px;
-    border-radius: 10px;
+    width: 7vh;
+    height: 7vh;
+    background: none;
+    border: none;
 }
 .new-nav i{
     cursor: pointer;
 }
 .new-bg-nav{
     border: solid #7C6351 2px;
-    padding: 5vh;
+    padding: 2vh;
     gap: 5px;
     flex-direction: column;
     position: absolute;
     display: none;
-    top: 10px;
-    left: 20px;
-    border-radius: 50px;
+    top: 8vh;
+    left: -7vh;
+    border-radius: 25px;
     background-color: #FFF7E2;
     z-index: -1;
 }
 .new-bg-nav a{
     text-align: center;
-    font-size: 5vh;
+    font-size: 3vh;
     text-decoration: none;
     color: #7C6351;
     transition: ease-in-out 0.15s;
@@ -393,11 +395,30 @@ main{
     .About-us-box div{
         width: 100%;
     }
+    .nav-panel{
+        height: 6vh;
+        width: 100%;
+        top: 20px;
+        position: fix;
+    }
     .bg-nav{
+        width: 70%;
+    }
+    .middle{
         display: none;
     }
-    .new-nav{
-        display:block;
+    .bg-nav a.li-About-us{
+        display: none;
     }
+    .more{
+        display: block;
+        position: relative;
+    }
+    /* .bg-nav{
+        display: none;
+    } */
+    /* .new-nav{
+        display:block;
+    } */
 }
 
