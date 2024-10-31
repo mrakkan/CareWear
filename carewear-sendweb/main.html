@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main-deco.css">
+    <title>Carewear</title>
+</head>
+<body>
+    <!-- หน้าโหลดผี -->
+    <div id="load-screen">
+        <div class="heartbeat">
+        </div>
+    </div>
+    <div class="top-content">
+        <img class="logo" src="../img/logo.png" alt="logo">
+        <div class="carewear">CareWear</div>
+    </div>
+    <main class="main-content">
+        <!-- แถบซ้ายหิหิ -->
+        <section class="left-panel">
+            
+            <div class="left-upper-panel">
+                <!-- ก้าวสูงสุด -->
+                <div class="total">
+                    <div class="top">
+                        <img src="../img/foot.png" alt="total steps">
+                        <div class="name-box">Total steps</div>
+                    </div>
+                    <div class="big">00000</div>
+                    <div>Goal :</div>
+                </div>
+            </div>
+            <!-- คคร แครอรี่ -->
+            <div class="left-lower-panel" >
+                <div class="lower-box">
+                    <div class="top">
+                        <img src="../img/food.png" alt="total steps">
+                        <div class="name-box">Calories</div>
+                    </div>
+                    <div class="bottom">Jake</div>
+                </div>
+            </div>
+        </section>
+        <!-- แถบขวาหิหิ-->
+        <section class="right-panel">
+            <div class="right-box">
+                <div class="top">
+                    <img src="../img/heart.png" alt="total steps">
+                    <div class="name-box">Heart rate</div>
+                </div>
+                <div class="heart">
+                    <div class="rate-box">
+                        <div class="text">Highest</div>
+                        <div class="heart-values">000</div>
+                    </div>
+                    <div class="rate-box">
+                        <div class="text">Lowest</div>
+                        <div class="heart-values">000</div>
+                    </div>
+                </div>
+                <div class="heart-box">graph</div>
+            </div>
+        </section>
+    </main>
+</body>
+<script>
+    window.onload = function() {
+        setTimeout(function(){
+        document.getElementById('load-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        document.getElementById('top-content').style.display = 'block';
+    }, 2000);
+};
+</script>
+</html>
