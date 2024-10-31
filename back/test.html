@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MQTT Client</title>
+</head>
+<body>
+    <h1>MQTT Client</h1>
+    <button id="connect">Connect</button>
+    <button id="publish">Publish</button>
+    <input type="text" id="message" placeholder="Enter message">
+    <div id="log"></div>
+
+    
+<!--^ paho mqtt -->
+    <!-- โหลดไฟล์ Paho MQTT Client จาก CDN -->
+    <!-- <script src="https://unpkg.com/paho-mqtt/mqttws31.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+    <script>
+        // var client = new Paho.MQTT.Client("ws://mqtt-dashboard.com:8000", "999"); // ใช้ WebSocket URL และพอร์ต
+        // const client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "66070127");
+        const client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "999");
+
+        client.onConnectionLost = function (responseObject) {
+            console.log("Connection lost: " + responseObject.errorMessage);
+        };
+
+        // client.onMessageArrived = function (message) {
+        //     console.log("Message arrived: " + message.payloadString);
+        //     document.getElementById("log").innerHTML += "<p>" + message.payloadString + "</p>";
+        // };
+
+        document.getElementById("connect").onclick = function () {
+            client.connect({
+                onSuccess: onConnect,
+                userName: "", // เปลี่ยนถ้าต้องการ
+                password: ""  // เปลี่ยนถ้าต้องการ
+            });
+        };
+
+        document.getElementById("publish").onclick = function () {
+            var message = new Paho.MQTT.Message(document.getElementById("message").value);
+            message.destinationName = "testtopic/999157"; // กำหนดชื่อหัวข้อที่จะ Publish
+            client.send(message);
+        };
+
+        function onConnect() {
+            console.log("Connected");
+            client.subscribe("testtopic/999157");
+        }
+    </script>
+
+
+</body>
+</html>
