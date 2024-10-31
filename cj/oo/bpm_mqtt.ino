@@ -32,7 +32,7 @@ const char MQTT_PASSWORD[] = "";                                            // C
 // The MQTT topics that Arduino should publish/subscribe
 const char PUBLISH_TOPIC[] = "testtopic/999157";    // CHANGE IT AS YOU DESIRE
 const char SUBSCRIBE_TOPIC[] = "testtopic/999157";  // CHANGE IT AS YOU DESIRE
-
++
 const int PUBLISH_INTERVAL = 60 * 1000;  // 60 seconds
 
 WiFiClient network;
@@ -46,8 +46,6 @@ unsigned long lastPublishTime = 0;
 
 
 
-// TODO  Variables
-//// ^ variables : pulseSensor
 //aniamation
 #define SCREEN_I2C_ADDR 0x3C //
 #define SCREEN_WIDTH 128     // OLED display width, in pixels
@@ -221,6 +219,9 @@ void messageHandler(String &topic, String &payload) {
 //////////////////////////////////////////////////////////// TODO
 
 void setup() {
+  //animation
+
+
   pulseSetup();
   ledSetup();
 
@@ -242,6 +243,8 @@ void setup() {
 
   connectToMQTT();
 }
+
+int frame = 0; //animation
 
 void loop() {
   mqtt.loop();
@@ -280,7 +283,8 @@ void loop() {
 
   display.setCursor(0, 20);
   display.print("🤍");
-  display.setCursor(20, 20); 
+  // display.setTextSize(1);
+  display.setCursor(20, 20);
   display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
   // display.print(bpm_val, DEC);
   display.print(bpm_val);   //^ bmp value
@@ -289,6 +293,7 @@ void loop() {
   display.print(" BPM");  //^ bmp text
 
   display.setCursor(0, 40);
+  // display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
   // display.print(bpm_val, DEC); //send step from gyro
   display.print(steps); //^ steps value
