@@ -128,7 +128,7 @@ main{
 .head{
     padding-bottom: 50px;
     width: 100%;
-    height: 96vh;
+    height: 100vh;
     display: flex;
     /* background-color: #FFD7E9; */
     flex-direction: row;
@@ -163,7 +163,6 @@ main{
     width: 50%;
 }
 .head-img{
-    transform: translate(10%, -50%);
     border-radius: 50%;
     background-image: url("../img/chi.jpg");
     background-size: cover;
@@ -413,6 +412,26 @@ main{
     .more{
         display: block;
         position: relative;
+    }
+    .head{
+        flex-direction: column;
+        width: 100%;
+        padding-bottom: 0;
+    }
+    .head-name{
+        display: flex;
+        justify-content: center;
+    }
+    .head-right{
+        position: relative;
+        width: 100%;
+        background-image: url("../img/chi.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
+    .head-img{
+        display: none;
     }
     /* .bg-nav{
         display: none;
