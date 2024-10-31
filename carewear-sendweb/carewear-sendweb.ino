@@ -1,55 +1,32 @@
-//^ /////////////////////////// for web
-#include <ESP8266WiFi.h>  // หรือ #include <WiFi.h> สำหรับ ESP32
+// for web
+#include <ESP8266WiFi.h>  
 #include <PubSubClient.h>
-
 const char* ssid = "Nokia Lumia 149+"; // ชื่อ Wi-Fi ของคุณ
-const char* password = "YOUR_PASSWORD"; // รหัสผ่าน Wi-Fi ของคุณ
-const char* mqttServer = "broker.hivemq.com"; // ที่อยู่ของ HiveMQ broker
-const int mqttPort = 1883; // พอร์ต MQTT
-
+const char* password = "123123123"; // รหัสผ่าน Wi-Fi ของคุณ
+const char* mqttServer = "yourbroker.com"; // ที่อยู่ของ HiveMQ broker
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-//^ /////////////////////////// oled
+// oled
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
 
-//^ heart animation
-#include <Adafruit_SSD1306.h> //forAnimation
-
-#define i2c_Address 0x3c
-
-#define SCREEN_WIDTH 128
-#define SCREEN_HEIGHT 64
-#define OLED_RESET -1
-Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-
-
-//^ /////////////////////////// pulseSensor
-//* เข้า analog pin 0
-//* from PulseSensor Playground Getting_BPM_to_Monitor
-//* ยังไม่ได้เอาโค้ดขึ้นจอ
-
+// pulseSensor
 #include <PulseSensorPlayground.h>
-//  Variables
-const int PulseWire = 0;       // PulseSensor PURPLE WIRE connected to ANALOG PIN 0
-const int LED = LED_BUILTIN;          // The on-board Arduino LED, close to PIN 13.
+const int PulseWire = 0;       // PulseSensor ANALOG PIN 0
+const int LED = LED_BUILTIN;   // The on-board Arduino LED PIN 13.
 int Threshold = 550;
-
 PulseSensorPlayground pulseSensor;
-
 int bpm_val = 0;  // ตัวแปรสำหรับทดสอบแสดงผล
 
-//^ /////////////////////////// gy521
+// gy521
 const int MPU_ADDR = 0x68;
-
 int16_t accelerometer_x, accelerometer_y, accelerometer_z;
 int16_t gyro_x, gyro_y, gyro_z;
 
 char tmp_str[7];
-
 int steps = 0;
 
 char* convert_int16_to_str(int16_t i) {
@@ -57,9 +34,33 @@ char* convert_int16_to_str(int16_t i) {
   return tmp_str;
 }
 
+//set up wifi
+void setup_wifi(){
+  delay(10);
+  Serial.println();
+  Serial.printf("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+  while (Wifi.status() != WL_CONNECTED){
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.print("WiFi connected - ESP IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
+//call back : function executed 
+void callback(String topic, byte message, unsigned int lenght) {
+  String messageTemp;
+
+  for(int i=0; i<lenght; i++){
+    Serial.print((char)messgae[1]);
+    messgaeTemp += (char)messge[i];
+  }
+  Seraial.println()
+}
 //^ /////////////////////////////////////////
-
-
 void setup() {
 
 //HEART
@@ -67,7 +68,7 @@ void setup() {
   display.clearDisplay();
 //
   Serial.begin(115200);
-  //
+//
   setupWiFi();
   client.setServer(mqttServer, mqttPort);
   client.setCallback(callback); // ตั้ง callback function
@@ -200,3 +201,4 @@ void loop() {
 }
 
 
+0000000000000000000000000000000
