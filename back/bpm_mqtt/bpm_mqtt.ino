@@ -4,6 +4,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
+#include <Fonts/FreeSans18pt7b.h>
 
 //// ^ import library : pulseSensor
     //$ เข้า analog pin 0
