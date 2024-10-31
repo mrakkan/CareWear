@@ -28,7 +28,7 @@
                         <img src="../img/foot.png" alt="total steps">
                         <div class="name-box">Total steps</div>
                     </div>
-                    <div class="big">00000</div>
+                    <div class="big" id="steps"></div>
                     <div>Goal :</div>
                 </div>
             </div>
@@ -53,11 +53,11 @@
                 <div class="heart">
                     <div class="rate-box">
                         <div class="text">Highest</div>
-                        <div class="heart-values">000</div>
+                        <div class="heart-values" id="bpm"></div>
                     </div>
                     <div class="rate-box">
                         <div class="text">Lowest</div>
-                        <div class="heart-values">000</div>
+                        <div class="heart-values" id="bpm"></div>
                     </div>
                 </div>
                 <div class="heart-box">graph</div>
@@ -65,13 +65,145 @@
         </section>
     </main>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
 <script>
     window.onload = function() {
         setTimeout(function(){
         document.getElementById('load-screen').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-        document.getElementById('top-content').style.display = 'block';
+        // document.getElementById('main-content').style.display = 'block';
+        // document.getElementById('top-content').style.display = 'block';
     }, 2000);
-};
+    if (!client.isConnected()) {
+            client.connect({
+                onSuccess: onConnect,
+                onFailure: onFailure,
+                useSSL: false
+            });
+        } else {
+            console.log("Already connected to MQTT broker.");
+            alert("Already connected to MQTT broker.");
+        }
+    };
+
+    const client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "1001");
+
+    client.onConnectionLost = function (responseObject) {
+        console.log("Connection lost: " + responseObject.errorMessage);
+    };
+
+    client.onMessageArrived = function (message) {
+        console.log("Message arrived: " + message.payloadString);
+
+        try {
+            // แปลง JSON payload เป็นวัตถุ (object)
+            const data = JSON.parse(message.payloadString);
+
+            // เข้าถึงค่าต่างๆ ใน JSON
+            const bpm = data.bpm;
+            const steps = data.steps;
+
+            // แสดงผลข้อมูลบนหน้าเว็บ
+            document.getElementById("steps").innerHTML = `<p>${steps}</p>`;
+            document.getElementById("bpm").innerHTML = `<p>${bpm}</p>`;
+            // document.getElementById("steps").innerHTML =
+            //     // `<p>BPM: ${bpm}</p><p>Steps: ${steps}</p>`;
+            //     `<p>${steps}</p>`;
+            // // document.getElementById("bpm").innerHTML =
+            // //     `<p>${bpm}</p>`;
+        } catch (e) {
+            console.error("Failed to parse JSON", e);
+        }
+    };
+
+    // window.onload = function () {
+        
+    // };
+
+    // document.getElementById("publish").onclick = function () {
+    //     if (client.isConnected()) {
+    //         var message = new Paho.MQTT.Message(document.getElementById("message").value);
+    //         message.destinationName = "testtopic/999157";
+    //         client.send(message);
+    //     } else {
+    //         console.log("Not connected to MQTT broker.");
+    //         alert("Not connected to MQTT broker.");
+    //     }
+    // };
+
+    function onConnect() {
+        console.log("Connected");
+        client.subscribe("testtopic/999157");
+        console.log("Subscribed to topic: testtopic/999157");
+    }
+
+    function onFailure(message) {
+        console.log("Connection failed: " + message.errorMessage);
+        alert("Connection failed: " + message.errorMessage);
+    }
 </script>
+
+<!-- <script>
+    const client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "1002");
+
+    client.onConnectionLost = function (responseObject) {
+        console.log("Connection lost: " + responseObject.errorMessage);
+    };
+
+    client.onMessageArrived = function (message) {
+        console.log("Message arrived: " + message.payloadString);
+
+        try {
+            // แปลง JSON payload เป็นวัตถุ (object)
+            const data = JSON.parse(message.payloadString);
+
+            // เข้าถึงค่าต่างๆ ใน JSON
+            const bpm = data.bpm;
+            const steps = data.steps;
+
+            // แสดงผลข้อมูลบนหน้าเว็บ
+            document.getElementById("steps").innerHTML =
+                // `<p>BPM: ${bpm}</p><p>Steps: ${steps}</p>`;
+                `<p>${steps}</p>`;
+            // document.getElementById("bpm").innerHTML =
+            //     `<p>${bpm}</p>`;
+        } catch (e) {
+            console.error("Failed to parse JSON", e);
+        }
+    };
+
+    document.getElementById("connect").onclick = function () {
+        if (!client.isConnected()) {
+            client.connect({
+                onSuccess: onConnect,
+                onFailure: onFailure,
+                useSSL: false
+            });
+        } else {
+            console.log("Already connected to MQTT broker.");
+            alert("Already connected to MQTT broker.");
+        }
+    };
+
+    document.getElementById("publish").onclick = function () {
+        if (client.isConnected()) {
+            var message = new Paho.MQTT.Message(document.getElementById("message").value);
+            message.destinationName = "testtopic/999157";
+            client.send(message);
+        } else {
+            console.log("Not connected to MQTT broker.");
+            alert("Not connected to MQTT broker.");
+        }
+    };
+
+    function onConnect() {
+        console.log("Connected");
+        client.subscribe("testtopic/999157");
+        console.log("Subscribed to topic: testtopic/999157");
+    }
+
+    function onFailure(message) {
+        console.log("Connection failed: " + message.errorMessage);
+        alert("Connection failed: " + message.errorMessage);
+    }
+</script> -->
 </html>
