@@ -222,11 +222,47 @@ void loop() {
   }
 
 //// ^ loop : pulse
-  pulseSensor.sawStartOfBeat();
-  bpm_val = pulseSensor.getBeatsPerMinute();
-  bpm_val = bpm_val / 2;
+  // pulseSensor.sawStartOfBeat();
+  // bpm_val = pulseSensor.getBeatsPerMinute();
+  // bpm_val = bpm_val / 2;
+
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  bpm_val = 112;
+
 
 //// ^ loop : oled (continue)
+  display.setCursor(0, 0);
+  display.setTextSize(1);
+  display.setTextColor(SH110X_BLACK, SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
+  display.print("  CareWear  ");
+
+  display.setCursor(0, 20); 
+  display.setTextSize(1);
+  display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
+  // display.print(bpm_val, DEC);
+  display.print(bpm_val);   //^ bmp value
+
+  display.setCursor(30, 20); 
+  display.print(" BPM");  //^ bmp text
+
+  display.setCursor(0, 40);
+  display.setTextSize(1);
+  display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
+  // display.print(bpm_val, DEC); //send step from gyro
+  display.print(steps); //^ steps value
+
+  display.setCursor(30, 40); 
+  display.print(" Step(s)");  //^ steps text
+
+  display.display();  // สั่งให้จอแสดงผล
+  
+  sendToMQTT();
+  delay(900);
+
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  bpm_val = bpm_val - 1;
+  display.clearDisplay();              // ลบภาพในหน้าจอทั้งหมด
+  
   display.setCursor(0, 0);
   display.setTextSize(1);
   display.setTextColor(SH110X_BLACK, SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
@@ -256,6 +292,7 @@ void loop() {
   delay(500);
 
 }
+
 
 
 
