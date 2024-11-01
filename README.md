@@ -27,4 +27,4 @@ CareWear เป็นอุปกรณ์ IOT ที่ใช้วัดอั
 https://youtu.be/gyX1RHr7vNQ
 
 # Poster
-- [CareWear Poster](poster)
+- [CareWear Poster](poster.pdf)
