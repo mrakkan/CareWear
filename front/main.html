@@ -36,9 +36,9 @@
                 <div class="lower-box">
                     <div class="top">
                         <img src="../img/food.png" alt="total steps">
-                        <div class="name-box">Calories</div>
+                        <div class="name-box">Calories (kcal)</div>
                     </div>
-                    <div class="bottom">Jake</div>
+                    <div class="bottom" id="total_cal"></div>
                 </div>
             </div>
         </section>
@@ -90,10 +90,12 @@
             // เข้าถึงค่าต่างๆ ใน JSON
             const bpm = data.bpm;
             const steps = data.steps;
+            const total = data.total_cal;
 
             // แสดงผลข้อมูลบนหน้าเว็บ
             document.getElementById("steps").innerHTML = `<p>${steps}</p>`;
             document.getElementById("bpm").innerHTML = `<p>${bpm}</p>`;
+            document.getElementById("total_cal").innerHTML = `<p>${total}</p>`;
             // document.getElementById("steps").innerHTML =
             //     // `<p>BPM: ${bpm}</p><p>Steps: ${steps}</p>`;
             //     `<p>${steps}</p>`;

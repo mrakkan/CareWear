@@ -22,7 +22,7 @@ body{
 .main-content{
     display: flex;
     flex-direction: row;
-    height: 100%;
+    height: 80%;
     background-color: #FFF7E2;
     margin: 10vh;
     margin-left: 25vh;
@@ -35,7 +35,7 @@ body{
     flex-direction: column;
     width: 30%;
     height: 100%;
-    gap: 40px;
+    gap: 1vh;
 }
 .right-panel{
     width: 70%;
@@ -59,7 +59,7 @@ body{
     display: flex;
     flex-direction: column;
     padding: 15px;
-    height: 85%;
+    height: 80%;
     background-color: white;
     border-radius: 35px;
 }
@@ -131,6 +131,8 @@ img{
 .heart {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     height: 80%;
     gap: 2vh;
     margin-top: 2vh;
@@ -162,6 +164,12 @@ img{
     font-size: 10vh;
     align-items: center;
     justify-content: center;
+}
+#bpm.heart p{
+    font-size: 20vw;
+}
+#steps.big p, #total_cal.bottom p{
+    font-size: 10vw;
 }
 @keyframes heartbeat {
     0%, 100% {
@@ -199,7 +207,7 @@ img{
     .main-content{
         flex-direction: column;
         margin: 6vh;
-        gap: 40px;
+        gap: 1vh;
     }
     
     .left-upper-panel{
@@ -214,7 +222,7 @@ img{
         height: 90%;
     }
     .lower-box{
-        height: 90%;
+        height: 80%;
     }
     .left-panel{
         width: 100%;

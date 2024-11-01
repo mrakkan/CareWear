@@ -54,7 +54,6 @@ unsigned long lastPublishTime = 0;
 #define OLED_RESET -1
 
 Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-
 //// ^ variables : pulseSensor
 const int PulseWire = 0;       // PulseSensor PURPLE WIRE connected to ANALOG PIN 0
 const int LED = LED_BUILTIN;          // The on-board Arduino LED, close to PIN 13.
@@ -73,6 +72,9 @@ int16_t gyro_x, gyro_y, gyro_z;
 char tmp_str[7];
 
 int steps = 0;
+
+double total_cal = 0;
+
 
 char* convert_int16_to_str(int16_t i) {
   sprintf(tmp_str, "%6d", i);
@@ -155,10 +157,11 @@ void sendToMQTT() { //* ค่าเข้าตรงนี้
   // // Print debug information to the Serial Monitor in one line
   // Serial.println("Arduino UNO R4 - sent to MQTT: topic: " + String(PUBLISH_TOPIC) + " | payload: " + String(messageBuffer));
 
-
-  String jsonPayload = "{\"bpm\":" + String(bpm_val) + ",\"steps\":" + String(steps) + "}";
+  // String jsonPayload = "{\"bpm\":" + String(bpm_val) + ",\"steps\":" + String(steps) + "}";
+  String jsonPayload = "{\"bpm\":" + String(bpm_val) + ",\"steps\":" + String(steps) + ",\"total_cal\":" + String(total_cal) + "}";
   mqtt.publish(PUBLISH_TOPIC, jsonPayload);
   Serial.println("Sent: " + jsonPayload);
+
 }
 
 void messageHandler(String &topic, String &payload) {
@@ -219,6 +222,7 @@ void loop() {
 
   if (gyro_x > 1000 || gyro_y > 1000 || gyro_z > 1000) {
     steps++;
+    total_cal += 0.04;
   }
 
 //// ^ loop : pulse
@@ -227,7 +231,7 @@ void loop() {
   // bpm_val = bpm_val / 2;
 
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  bpm_val = 112;
+  bpm_val = 157;
 
 
 //// ^ loop : oled (continue)
@@ -291,6 +295,36 @@ void loop() {
   sendToMQTT();
   delay(500);
 
+  bpm_val = bpm_val + 2;
+  display.clearDisplay();              // ลบภาพในหน้าจอทั้งหมด
+  
+  display.setCursor(0, 0);
+  display.setTextSize(1);
+  display.setTextColor(SH110X_BLACK, SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
+  display.print("  CareWear  ");
+
+  display.setCursor(0, 20); 
+  display.setTextSize(1);
+  display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
+  // display.print(bpm_val, DEC);
+  display.print(bpm_val);   //^ bmp value
+
+  display.setCursor(30, 20); 
+  display.print(" BPM");  //^ bmp text
+
+  display.setCursor(0, 40);
+  display.setTextSize(1);
+  display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
+  // display.print(bpm_val, DEC); //send step from gyro
+  display.print(steps); //^ steps value
+
+  display.setCursor(30, 40); 
+  display.print(" Step(s)");  //^ steps text
+
+  display.display();  // สั่งให้จอแสดงผล
+  
+  sendToMQTT();
+  delay(500);
 }
 
 

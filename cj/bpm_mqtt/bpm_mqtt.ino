@@ -4,7 +4,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h> //animation
 #include <Adafruit_SH110X.h>
-#include <Adafruit_SSD1306> //animation
+// #include <Adafruit_SSD1306> //animation
 #include <Fonts/FreeSans18pt7b.h>
 
 //// ^ import library : pulseSensor
