@@ -339,9 +339,15 @@ main{
     padding-left: 10vh;
     padding-right: 10vh;
 }
+.link-list a{
+    text-decoration: none;
+}
 .link-list div{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    font-size: 7vh;
+    text-align: center;
+    justify-content: center;
     border-radius: 30px;
     background-color: white;
     width: 70vh;
@@ -597,9 +603,9 @@ main{
         <section class="link" id="link">
             <h1>Links</h1>
             <div class="link-list">
-                <div class="big" data-aos="fade-up" data-aos-duration="1000">video presentation</div>
-                <div class="big" data-aos="fade-up" data-aos-duration="2000">source code</div>
-                <div class="big" data-aos="fade-up" data-aos-duration="2000">project poster</div>
+                <a href="https://youtu.be/gyX1RHr7vNQ"><div class="big" data-aos="fade-up" data-aos-duration="1000">video presentation</div></a>
+                <a href="https://github.com/mrakkan/CareWear/blob/main/arduino/bpm_mqtt/bpm_mqtt.ino"><div class="big" data-aos="fade-up" data-aos-duration="2000">source code</div></a>
+                <a href="https://github.com/mrakkan/CareWear/blob/main/poster.pdf"><div class="big" data-aos="fade-up" data-aos-duration="2000">project poster</div></a>
             </div>
         </section>
         <section class="About-us" id="about">
