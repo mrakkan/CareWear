@@ -22,3 +22,9 @@ CareWear เป็นอุปกรณ์ IOT ที่ใช้วัดอั
 - Module เซนเซอร์วัดอัตราการเต้นของหัวใจ HW-827 หรือ XD-58C
 - 3-axis Accelerometer/Gyro module GY-521 หรือ MPU-6050
 - จอ OLED ขนาด 128x64 pixels SNP-00010
+
+# วิดีโอ
+https://youtu.be/gyX1RHr7vNQ
+
+# Poster
+
