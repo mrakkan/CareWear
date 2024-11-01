@@ -15,10 +15,12 @@
 
 
 
-
+//// ^ import library : esp32
 #include <WiFiS3.h>
 #include <MQTTClient.h>
 
+// TODO  Variables
+//// ^ variables : esp32
 const char WIFI_SSID[] = "Nokia Lumia 149+";          // CHANGE TO YOUR WIFI SSID
 const char WIFI_PASSWORD[] = "123123123";  // CHANGE TO YOUR WIFI PASSWORD
 
@@ -39,13 +41,6 @@ MQTTClient mqtt = MQTTClient(256);
 
 unsigned long lastPublishTime = 0;
 
-
-
-
-
-
-
-// TODO  Variables
 //// ^ variables : pulseSensor
 #define i2c_Address 0x3c
 
@@ -95,7 +90,6 @@ void pulseSetup() {
 }
 
 void ledSetup() {
-  // Serial.begin(9600);
   if (!display.begin(i2c_Address, true)) {  // สั่งให้จอ OLED เริ่มทำงานที่ Address 0x3C
     Serial.println("SSD1306 allocation failed");
   } else {
@@ -113,10 +107,8 @@ void ledSetup() {
 //////////////////////////////////////////////////////////// TODO
 
 void connectToMQTT() {
-  // Connect to the MQTT broker
   mqtt.begin(MQTT_BROKER_ADRRESS, MQTT_PORT, network);
 
-  // Create a handler for incoming messages
   mqtt.onMessage(messageHandler);
 
   Serial.print("Arduino UNO R4 - Connecting to MQTT broker");
@@ -132,7 +124,6 @@ void connectToMQTT() {
     return;
   }
 
-  // Subscribe to a topic, the incoming messages are processed by messageHandler() function
   if (mqtt.subscribe(SUBSCRIBE_TOPIC))
     Serial.print("Arduino UNO R4 - Subscribed to the topic: ");
   else
@@ -143,21 +134,6 @@ void connectToMQTT() {
 }
 
 void sendToMQTT() { //* ค่าเข้าตรงนี้
-  // int val = millis();
-  // //int val = analogRead(A0);
-  // String val_str = String(val);
-
-  // // Convert the string to a char array for MQTT publishing
-  // char messageBuffer[10];
-  // val_str.toCharArray(messageBuffer, 10);
-
-  // // Publish the message to the MQTT topic
-  // mqtt.publish(PUBLISH_TOPIC, messageBuffer); //* ส่งขึ้น mqtt ตรงนี้
-
-  // // Print debug information to the Serial Monitor in one line
-  // Serial.println("Arduino UNO R4 - sent to MQTT: topic: " + String(PUBLISH_TOPIC) + " | payload: " + String(messageBuffer));
-
-  // String jsonPayload = "{\"bpm\":" + String(bpm_val) + ",\"steps\":" + String(steps) + "}";
   String jsonPayload = "{\"bpm\":" + String(bpm_val) + ",\"steps\":" + String(steps) + ",\"total_cal\":" + String(total_cal) + "}";
   mqtt.publish(PUBLISH_TOPIC, jsonPayload);
   Serial.println("Sent: " + jsonPayload);
@@ -166,11 +142,6 @@ void sendToMQTT() { //* ค่าเข้าตรงนี้
 
 void messageHandler(String &topic, String &payload) {
   Serial.println("Arduino UNO R4 - received from MQTT: topic: " + topic + " | payload: " + payload);
-
-  // You can process the incoming data , then control something
-  /*
-  process something
-  */
 }
 
 //////////////////////////////////////////////////////////// TODO
@@ -187,13 +158,11 @@ void setup() {
   while (status != WL_CONNECTED) {
     Serial.print("Arduino UNO R4 - Attempting to connect to SSID: ");
     Serial.println(WIFI_SSID);
-    // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
     status = WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
-    // wait 10 seconds for connection:
     delay(10000);
   }
-  // print your board's IP address:
+
   Serial.print("IP Address: ");
   Serial.println(WiFi.localIP());
 
@@ -226,12 +195,9 @@ void loop() {
   }
 
 //// ^ loop : pulse
-  // pulseSensor.sawStartOfBeat();
-  // bpm_val = pulseSensor.getBeatsPerMinute();
-  // bpm_val = bpm_val / 2;
-
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  bpm_val = 157;
+  pulseSensor.sawStartOfBeat();
+  bpm_val = pulseSensor.getBeatsPerMinute();
+  bpm_val = bpm_val / 2;
 
 
 //// ^ loop : oled (continue)
@@ -243,7 +209,6 @@ void loop() {
   display.setCursor(0, 20); 
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
-  // display.print(bpm_val, DEC);
   display.print(bpm_val);   //^ bmp value
 
   display.setCursor(30, 20); 
@@ -252,70 +217,6 @@ void loop() {
   display.setCursor(0, 40);
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
-  // display.print(bpm_val, DEC); //send step from gyro
-  display.print(steps); //^ steps value
-
-  display.setCursor(30, 40); 
-  display.print(" Step(s)");  //^ steps text
-
-  display.display();  // สั่งให้จอแสดงผล
-  
-  sendToMQTT();
-  delay(900);
-
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  bpm_val = bpm_val - 1;
-  display.clearDisplay();              // ลบภาพในหน้าจอทั้งหมด
-  
-  display.setCursor(0, 0);
-  display.setTextSize(1);
-  display.setTextColor(SH110X_BLACK, SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
-  display.print("  CareWear  ");
-
-  display.setCursor(0, 20); 
-  display.setTextSize(1);
-  display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
-  // display.print(bpm_val, DEC);
-  display.print(bpm_val);   //^ bmp value
-
-  display.setCursor(30, 20); 
-  display.print(" BPM");  //^ bmp text
-
-  display.setCursor(0, 40);
-  display.setTextSize(1);
-  display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
-  // display.print(bpm_val, DEC); //send step from gyro
-  display.print(steps); //^ steps value
-
-  display.setCursor(30, 40); 
-  display.print(" Step(s)");  //^ steps text
-
-  display.display();  // สั่งให้จอแสดงผล
-  
-  sendToMQTT();
-  delay(500);
-
-  bpm_val = bpm_val + 2;
-  display.clearDisplay();              // ลบภาพในหน้าจอทั้งหมด
-  
-  display.setCursor(0, 0);
-  display.setTextSize(1);
-  display.setTextColor(SH110X_BLACK, SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
-  display.print("  CareWear  ");
-
-  display.setCursor(0, 20); 
-  display.setTextSize(1);
-  display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
-  // display.print(bpm_val, DEC);
-  display.print(bpm_val);   //^ bmp value
-
-  display.setCursor(30, 20); 
-  display.print(" BPM");  //^ bmp text
-
-  display.setCursor(0, 40);
-  display.setTextSize(1);
-  display.setTextColor(SH110X_WHITE);  //กำหนดข้อความสีดำ ฉากหลังสีขาว
-  // display.print(bpm_val, DEC); //send step from gyro
   display.print(steps); //^ steps value
 
   display.setCursor(30, 40); 
@@ -326,9 +227,3 @@ void loop() {
   sendToMQTT();
   delay(500);
 }
-
-
-
-
-
-
