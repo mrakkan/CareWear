@@ -177,7 +177,7 @@ main{
 }
 .abstract h1{
     font-size: 10vh;
-    /* margin: 0; */
+    margin-bottom: 0;
 }
 .equipment{
     display: flex;
@@ -229,13 +229,16 @@ main{
     border-bottom: solid #7C6351 2px;
 }
 .Input h1{
-    /* margin: 0; */
+    margin-bottom: 0;
     font-size: 10vh;
     text-align: center;
 }
-.Input .box{
-    height: 100vh;
+.Input p{
+    text-align: center;
 }
+/* .Input .box{
+    height: 100vh;
+} */
 .Input-deco{
     left: 0.5vh;
     width: 100vw;
@@ -265,7 +268,7 @@ main{
     height: auto;
 }
 .Output h1{
-    /* margin: 0; */
+    margin-bottom: 0;
     font-size: 10vh;
     text-align: center;
 }
@@ -285,8 +288,20 @@ main{
 .output-list div{
     border-radius: 30px;
     background-color: white;
-    width: 50vh;
+    width: 100vh;
     height: 50vh;
+}
+#item1{
+    background-image: url("../img/web.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#item2{
+    background-image: url("../img/fis.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .link{
     display: flex;
@@ -338,7 +353,7 @@ main{
 
 .About-us{
     /* padding-top: 20vh; */
-    gap: 4vh;
+    /* gap: 4vh; */
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -347,14 +362,17 @@ main{
 }
 .About-us h1{
     font-size: 10vh;
+    margin-bottom: 0;
 }
 .us-list{
     flex-wrap: wrap;
     gap: 4vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 90%;
     justify-content: center;
+    text-align: center;
+    align-content: center;
     padding-left: 10vh;
     padding-right: 10vh;
 }
@@ -366,7 +384,30 @@ main{
     width: 70vh;
     height: 50vh;
 }
-
+#max{
+    background-image: url("../img/max.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#care{
+    background-image: url("../img/care.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#cj{
+    background-image: url("../img/cj.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#noeysod{
+    background-image: url("../img/neoysod.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 @media (max-width: 1000px){
     .link{
         height: auto;
@@ -425,10 +466,10 @@ main{
     .head-right{
         position: relative;
         width: 100%;
-        background-image: url("../img/chi.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+        background-image: url("../img/first.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
     .head-img{
         display: none;
