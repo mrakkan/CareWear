@@ -131,7 +131,7 @@ img{
 .heart {
     display: flex;
     flex-direction: row;
-    height: 30%;
+    height: 80%;
     gap: 2vh;
     margin-top: 2vh;
     margin-left: 2vh;
